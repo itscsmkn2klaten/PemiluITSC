@@ -16,14 +16,12 @@ const paslonDetails = {
         tagline: "Raffa Agung Nugroho (XI PPLG B) & Dicky Pratama (X PPLG B)",
         color: "#38BAFF",
         emoji: "💻",
-        desc: "Pasangan Raffa & Dicky hadir dengan misi modernisasi sistem kerja internal organisasi. Berfokus pada efisiensi alur komunikasi berbasis teknologi, transparansi pengelolaan, dan keterbukaan informasi bagi seluruh anggota.",
-        visi: "Mewujudkan ITSC sebagai organisasi yang menerapkan kedisiplinan, kesetiaan dan bertanggungjawab serta menciptakan generasi yang berkualitas dan membawa perubahan nyata bagi lingkungan sekolah dan masyarakat.",
+        visi: "Menjadikan ITSC sebagai wadah kolaborasi teknologi yang terstruktur, adaptif, dan berorientasi pada hasil, dengan mengedepankan solidaritas serta tata kelola organisasi yang profesional.",
         misi: [
-            "Transparansi anggaran & laporan keuangan realtime",
-            "Platform Skill Hub & Workshop digital anggota",
-            "Digitalisasi alur persetujuan & manajemen proker",
-            "Sistem absensi & tracking kinerja berbasis aplikasi",
-            "Newsletter bulanan & portal informasi terpadu"
+            "Mengoptimalkan perencanaan program dan sumber daya secara tepat sasaran.",
+            "Memperkuat koordinasi dan komunikasi efektif antardivisi.",
+            "Mendorong budaya kerja yang aktif, suportif, dan gotong royong.",
+            "Membangun kemitraan strategis dengan organisasi maupun pihak eksternal.",
         ]
     },
     2: {
@@ -32,7 +30,6 @@ const paslonDetails = {
         tagline: "Muhammad Fadil (XI PPLG A) & Muhammad Fatchul Mubarok (X PPLG B)",
         color: "#FF8C1A",
         emoji: "🎨",
-        desc: "Pasangan Fadil & Fatchul berfokus membangun lingkungan organisasi yang ramah, inklusif, dan menghargai keberagaman. Mendorong apresiasi seni, budaya, serta memperkuat jejaring kolaboratif antar-divisi.",
         visi: "Mewujudkan ITSC sebagai organisasi yang menerapkan kedisiplinan, kesetiaan dan bertanggungjawab serta menciptakan generasi yang berkualitas dan membawa perubahan nyata bagi lingkungan sekolah dan masyarakat.",
         misi: [
             "Mengoptimalkan saluran komunikasi dan aspirasi siswa.",
@@ -47,7 +44,6 @@ const paslonDetails = {
         tagline: "Muhammad Choirul Arifin (XI PPLG B) & Ramayudika Septyan Supermana (X PPLG B)",
         color: "#9B59EF",
         emoji: "⚡",
-        desc: "Pasangan Choirul & Dika hadir dengan visi akselerasi kinerja melalui optimalisasi struktur operasional. Menyederhanakan birokrasi, mengeksekusi program prioritas tepat sasaran, dan mendorong pengukuran kinerja berbasis data.",
         visi: "Menjadikan ITSC sebagai wadah pengembangan minat dan bakat bagi keluarga SIJA yang religius, kreatif,  bertanggungjawab, serta berdaya saing tinggi.",
         misi: [
             "Menyelenggarakan kegiatan positif untuk mengembangkan kreativitas, minat, bakat, dan potensi seluruh keluarga SIJA.",

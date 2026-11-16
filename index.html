@@ -62,8 +62,7 @@
       <div class="gate-form">
         <label class="gate-label" for="regCodeInput">▶ TOKEN PEMILIH:</label>
         <div class="gate-input-wrap">
-          <span class="gate-input-icon">🔑</span>
-          <input type="text" id="regCodeInput" class="gate-input" maxlength="25" placeholder="CONTOH: ITSC-A8K2-9M4P"
+          <input type="text" id="regCodeInput" class="gate-input" maxlength="25" placeholder="ITSC-A8K2-9M4P"
             autocomplete="off" spellcheck="false" oninput="onCodeInput(this)"
             onkeydown="if(event.key==='Enter') submitCode()" />
         </div>
@@ -141,13 +140,12 @@
       <div class="cards-grid">
         <!-- PASLON 01 -->
         <div class="candidate-card" style="--card-color:#38BAFF">
-          <img src="img/paslon 1.jpg" alt="Raffa & Dicky" class="card-img">
+          <img src="img/paslon1.png" alt="Raffa & Dicky" class="card-img">
           <div class="card-badge">Kandidat 01</div>
           <div class="card-overlay">
             <div class="card-info">
               <span class="card-number">NOMOR URUT 01</span>
               <h3 class="card-name">Raffa &amp; Dicky</h3>
-              <p class="card-tagline">"DIGITALISASI &amp; KOLABORASI"</p>
             </div>
             <div class="card-actions">
               <button onclick="openVisiModal(1)" class="btn-secondary">LIHAT VISI MISI</button>
@@ -157,13 +155,12 @@
         </div>
         <!-- PASLON 02 -->
         <div class="candidate-card" style="--card-color:#FF8C1A">
-          <img src="img/paslon 2.jpg" alt="Fadil & Fatchul" class="card-img">
+          <img src="img/paslon2.png" alt="Fadil & Fatchul" class="card-img">
           <div class="card-badge">Kandidat 02</div>
           <div class="card-overlay">
             <div class="card-info">
               <span class="card-number">NOMOR URUT 02</span>
               <h3 class="card-name">Fadil &amp; Fatchul</h3>
-              <p class="card-tagline">"INKLUSIVITAS &amp; KEBERAGAMAN"</p>
             </div>
             <div class="card-actions">
               <button onclick="openVisiModal(2)" class="btn-secondary">LIHAT VISI MISI</button>
@@ -173,13 +170,12 @@
         </div>
         <!-- PASLON 03 -->
         <div class="candidate-card" style="--card-color:#9B59EF">
-          <img src="img/paslon 3.jpg" alt="Choirul & Dika" class="card-img">
+          <img src="img/paslon3.png" alt="Choirul & Dika" class="card-img">
           <div class="card-badge">Kandidat 03</div>
           <div class="card-overlay">
             <div class="card-info">
               <span class="card-number">NOMOR URUT 03</span>
               <h3 class="card-name">Choirul &amp; Dika</h3>
-              <p class="card-tagline">"EFISIENSI &amp; AKSELERASI"</p>
             </div>
             <div class="card-actions">
               <button onclick="openVisiModal(3)" class="btn-secondary">LIHAT VISI MISI</button>
@@ -419,8 +415,8 @@
         <div class="footer-hero-left">
           <div class="footer-hero-eyebrow">▶ PEMILU ITSC 2026</div>
           <h2 class="footer-hero-title">SUARA ANDA<br><span>MENENTUKAN</span><br>MASA DEPAN</h2>
-          <p class="footer-hero-sub">Sistem e-voting transparan berbasis teknologi web. Setiap suara tercatat,
-            terverifikasi, dan dapat diaudit secara realtime oleh seluruh anggota.</p>
+          <p class="footer-hero-sub">Sistem e-voting transparan untuk pemilihan Ketua &amp; Wakil Ketua ITSC. Setiap
+            suara terenkripsi dan tercatat secara realtime.</p>
           <div class="footer-hero-badges">
             <span class="fhb fhb--green">✓ TERENKRIPSI</span>
             <span class="fhb fhb--blue">✓ REALTIME</span>
@@ -444,9 +440,8 @@
             <div class="footer-brand-year">ITSC 2026</div>
           </div>
         </div>
-        <p class="footer-brand-desc">Platform e-voting resmi untuk pemilihan Ketua &amp; Wakil Ketua ITSC (Information
-          &amp; Technology Study Community) SMK Negeri 2 Klaten periode 2026–2028. Dibangun di atas prinsip
-          transparansi, akuntabilitas, dan partisipasi demokratis.</p>
+        <p class="footer-brand-desc">Platform e-voting resmi Information &amp; Technology Study Community (ITSC) SMK
+          Negeri 2 Klaten periode 2026–2028 untuk pemilihan yang jujur dan demokratis.</p>
         <div class="footer-status-badge">
           <span class="footer-status-dot"></span>
           SISTEM AKTIF &amp; BERJALAN
@@ -454,7 +449,7 @@
         <div class="footer-integrity-row">
           <div class="fir-item">
             <div class="fir-icon">🔒</div>
-            <div class="fir-label">SATU SUARA<br>PER PEMILIH</div>
+            <div class="fir-label">1 TOKEN<br>1 SUARA</div>
           </div>
           <div class="fir-item">
             <div class="fir-icon">📡</div>
@@ -462,40 +457,38 @@
           </div>
           <div class="fir-item">
             <div class="fir-icon">📋</div>
-            <div class="fir-label">AUDIT<br>TRAIL</div>
+            <div class="fir-label">TERAUDIT<br>PANITIA</div>
           </div>
-        </div>
-        <div class="footer-tech-tags">
-          <span class="ftag">HTML5</span>
-          <span class="ftag">CSS3</span>
-          <span class="ftag">SUPABASE</span>
-          <span class="ftag">CHART.JS</span>
         </div>
       </div>
 
-      <!-- Col 2: Navigasi -->
+      <!-- Col 2: Navigasi & Jadwal -->
       <div class="footer-col">
         <div class="footer-col-title"><span class="ftitle-icon">▶</span> NAVIGASI</div>
-        <ul class="footer-links">
-          <li><a href="#" onclick="switchView('voting');return false;" class="footer-link"><span
-                class="flink-arrow">▶</span>🗳️ Bilik Suara</a></li>
-          <li id="footerAdminNav" hidden><a href="#" onclick="switchView('admin');return false;"
-              class="footer-link"><span class="flink-arrow">▶</span>📊 Dashboard Rekapitulasi</a></li>
-          <li><a href="#" class="footer-link"><span class="flink-arrow">▶</span>📄 Tata Tertib Pemilu</a></li>
-          <li><a href="#" class="footer-link"><span class="flink-arrow">▶</span>❓ Panduan &amp; FAQ</a></li>
-          <li><a href="#" class="footer-link"><span class="flink-arrow">▶</span>🛡️ Kebijakan Privasi</a></li>
-          <li><a href="#" class="footer-link"><span class="flink-arrow">▶</span>📜 Berita Acara</a></li>
+        <ul class="footer-links footer-links--compact">
+          <li><a href="#" onclick="switchView('voting');scrollToTopSmooth();return false;" class="footer-link"><span
+                class="flink-arrow">▶</span>Bilik Suara</a></li>
+          <li id="footerAdminNav" hidden><a href="#" onclick="switchView('admin');scrollToTopSmooth();return false;"
+              class="footer-link"><span class="flink-arrow">▶</span>Rekapitulasi</a></li>
+          <li><a href="#" onclick="openInfoModal('tatib');return false;" class="footer-link"><span
+                class="flink-arrow">▶</span>Tata Tertib</a></li>
+          <li><a href="#" onclick="openInfoModal('faq');return false;" class="footer-link"><span
+                class="flink-arrow">▶</span>Panduan &amp; FAQ</a></li>
+          <li><a href="#" onclick="openInfoModal('privasi');return false;" class="footer-link"><span
+                class="flink-arrow">▶</span>Privasi Data</a></li>
+          <li><a href="#" onclick="openInfoModal('berita');return false;" class="footer-link"><span
+                class="flink-arrow">▶</span>Berita Acara</a></li>
         </ul>
-        <div class="footer-col-title" style="margin-top:8px"><span class="ftitle-icon">⚡</span> JADWAL PEMILU</div>
-        <ul class="footer-schedule">
-          <li class="fsched-item fsched-done"><span class="fsched-dot"></span><span class="fsched-label">Pendaftaran
-              Kandidat</span><span class="fsched-date">Jan 2026</span></li>
+        <div class="footer-col-title" style="margin-top:16px"><span class="ftitle-icon">⚡</span> JADWAL PEMILU</div>
+        <ul class="footer-schedule footer-schedule--clear">
+          <li class="fsched-item fsched-done"><span class="fsched-dot"></span><span
+              class="fsched-label">Pendaftaran</span><span class="fsched-date">Des 2026</span></li>
           <li class="fsched-item fsched-done"><span class="fsched-dot"></span><span class="fsched-label">Kampanye &amp;
-              Debat</span><span class="fsched-date">Feb 2026</span></li>
+              Debat</span><span class="fsched-date">Des 2026</span></li>
           <li class="fsched-item fsched-active"><span class="fsched-dot"></span><span class="fsched-label">Pemungutan
-              Suara</span><span class="fsched-date">Mar 2026</span></li>
-          <li class="fsched-item"><span class="fsched-dot"></span><span class="fsched-label">Penetapan Hasil</span><span
-              class="fsched-date">Mar 2026</span></li>
+              Suara</span><span class="fsched-date">Des 2026</span></li>
+          <li class="fsched-item fsched-upcoming"><span class="fsched-dot"></span><span class="fsched-label">Penetapan
+              Hasil</span><span class="fsched-date">Des 2026</span></li>
         </ul>
       </div>
 
@@ -508,7 +501,6 @@
           <li><span class="fi-label">METODE</span> <span class="fi-val">E-VOTING</span></li>
           <li><span class="fi-label">PENYELENGGARA</span><span class="fi-val">ITSC SMK N 2 KLATEN</span></li>
           <li><span class="fi-label">STATUS</span> <span class="fi-val fi-val--live">● BERLANGSUNG</span></li>
-          <li><span class="fi-label">VERSI</span> <span class="fi-val">PIXEL v2.0</span></li>
         </ul>
       </div>
 
@@ -519,9 +511,10 @@
           <button class="footer-copy-btn" onclick="copyContact(this,'itscsmkn2@gmail.com')">
             <span class="fcb-icon">📧</span><span>itscsmkn2@gmail.com</span><span class="fcb-copy-hint">SALIN</span>
           </button>
-          <button class="footer-copy-btn" onclick="copyContact(this,'@ITSC_2026')">
-            <span class="fcb-icon">📱</span><span>@ITSC_2026</span><span class="fcb-copy-hint">SALIN</span>
-          </button>
+          <a href="https://www.instagram.com/itsc_smkn2klt?dlrf=MW1pMGM3Nnd5ams2eA==" target="_blank"
+            rel="noopener noreferrer" class="footer-copy-btn footer-ig-link">
+            <span class="fcb-icon">📱</span><span>@itsc_smkn2klaten</span><span class="fcb-copy-hint">BUKA ↗</span>
+          </a>
           <button class="footer-copy-btn"
             onclick="copyContact(this,'JL. Sekarsuli, Senden, Ngawen, Klaten - SMKN 2 Klaten')">
             <span class="fcb-icon">📍</span><span>JL. Sekarsuli, Senden, Ngawen, Klaten - SMKN 2 Klaten</span><span
@@ -557,14 +550,18 @@
     <!-- Bottom bar -->
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
-        <p class="footer-copy">© 2026 ITSC — INFORMATION &amp; TECHNOLOGY STUDY COMMUNITY · SMK N 2 KLATEN · PIXEL
-          EDITION</p>
-        <div class="footer-pixels-row" aria-hidden="true">
-          <span style="background:#FF8C1A"></span>
-          <span style="background:#FFE033"></span>
-          <span style="background:#38BAFF"></span>
-          <span style="background:#9B59EF"></span>
-          <span style="background:#4FC955"></span>
+        <p class="footer-copy">© 2026 ITSC — INFORMATION & TECHNOLOGY STUDY COMMUNNITY — SMK NEGERI 2 KLATEN </p>
+        <div class="footer-bottom-right">
+          <div class="footer-pixels-row" aria-hidden="true">
+            <span style="background:#FF8C1A"></span>
+            <span style="background:#FFE033"></span>
+            <span style="background:#38BAFF"></span>
+            <span style="background:#9B59EF"></span>
+            <span style="background:#4FC955"></span>
+          </div>
+          <button type="button" class="px-back-to-top" onclick="scrollToTopSmooth()" title="Kembali ke atas">
+            ▲ KE ATAS
+          </button>
         </div>
       </div>
     </div>
@@ -579,7 +576,6 @@
           <div class="modal-head-info">
             <span id="modalNumber" class="modal-num-badge">KANDIDAT 01</span>
             <div class="modal-name-row">
-              <span id="modalEmoji" class="modal-emoji">💻</span>
               <h3 id="modalTitle" class="modal-title">Raffa &amp; Dicky</h3>
             </div>
             <p id="modalTagline" class="modal-tagline"></p>
@@ -587,10 +583,6 @@
           <button onclick="closeVisiModal()" class="modal-close" aria-label="Tutup">✕</button>
         </div>
         <div class="modal-divider"></div>
-        <div class="modal-section modal-section--desc">
-          <h4 class="modal-section-title">▶ TENTANG PASLON:</h4>
-          <p id="modalDesc" class="modal-text"></p>
-        </div>
         <div class="modal-section modal-section--visi">
           <h4 class="modal-section-title">★ VISI UTAMA:</h4>
           <p id="modalVisi" class="modal-text modal-text--bold"></p>
@@ -697,9 +689,35 @@
     </div>
   </div>
 
+  <!-- ── Modal Informasi Footer (Tatib, FAQ, Privasi, Berita Acara) ── -->
+  <div id="footerInfoModal" class="modal-overlay">
+    <div class="modal-box" role="dialog" aria-modal="true">
+      <div id="infoModalAccent" class="modal-accent"
+        style="background: repeating-linear-gradient(90deg, #38BAFF 0px 8px, #FFE033 8px 16px);"></div>
+      <div class="modal-body">
+        <div class="modal-head">
+          <div class="modal-head-info">
+            <span id="infoModalBadge" class="modal-num-badge">INFORMASI RESMI</span>
+            <div class="modal-name-row">
+              <h3 id="infoModalTitle" class="modal-title">TATA TERTIB PEMILU</h3>
+            </div>
+          </div>
+          <button type="button" onclick="closeInfoModal()" class="modal-close" aria-label="Tutup">✕</button>
+        </div>
+        <div class="modal-divider"></div>
+        <div class="modal-section">
+          <ul id="infoModalList" class="modal-misi-list"></ul>
+        </div>
+        <div class="modal-actions">
+          <button type="button" onclick="closeInfoModal()" class="btn-close-modal w-full">✕ TUTUP</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="js/config.js"></script>
   <script src="js/chart.js"></script>
-  <script src="js/app.js?v=20261117"></script>
+  <script src="js/app.js?v=20261118"></script>
 </body>
 
 </html>

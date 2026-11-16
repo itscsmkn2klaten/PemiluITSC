@@ -44,6 +44,10 @@ document.addEventListener('DOMContentLoaded', async () => {
     document.getElementById('fsExitConfirmModal')?.addEventListener('click', (e) => {
         if (e.target === e.currentTarget) cancelExitFullscreen();
     });
+    document.getElementById('footerInfoModal')?.addEventListener('click', (e) => {
+        if (e.target === e.currentTarget) closeInfoModal();
+    });
+
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             const fsConfirmModal = document.getElementById('fsExitConfirmModal');
@@ -53,6 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
             closeVisiModal();
             closeVoteConfirm();
+            closeInfoModal();
             if (typeof closeFullscreenChart === 'function') closeFullscreenChart();
         }
     });
@@ -470,8 +475,6 @@ function openVisiModal(id) {
     document.getElementById('modalNumber').textContent = data.number;
     document.getElementById('modalTitle').textContent = data.title;
     document.getElementById('modalTagline').textContent = `"${data.tagline}"`;
-    document.getElementById('modalEmoji').textContent = data.emoji;
-    document.getElementById('modalDesc').textContent = data.desc;
     document.getElementById('modalVisi').textContent = data.visi;
 
     const misiUl = document.getElementById('modalMisi');
@@ -530,7 +533,6 @@ function openVoteConfirm(paslonId) {
 
     document.getElementById('confirmPaslonName').textContent = data.title;
     document.getElementById('confirmPaslonNum').textContent = data.number;
-    document.getElementById('confirmPaslonEmoji').textContent = data.emoji;
     document.getElementById('confirmTagline').textContent = `"${data.tagline}"`;
 
     const bar = document.getElementById('confirmAccentBar');
@@ -901,4 +903,84 @@ function cancelExitFullscreen() {
     if (confirmModal) {
         confirmModal.classList.remove('open');
     }
+}
+
+// ══════════════════════════════════════════════════════
+//  MODAL INFORMASI FOOTER & SMOOTH SCROLL
+// ══════════════════════════════════════════════════════
+const footerInfoData = {
+    tatib: {
+        badge: 'ATURAN PEMILIHAN',
+        title: 'TATA TERTIB PEMILU',
+        color: '#FF8C1A',
+        items: [
+            'Setiap anggota aktif ITSC SMK Negeri 2 Klaten berhak atas 1 (satu) token unik.',
+            'Token bersifat rahasia dan tidak boleh dipindahtangankan atau digunakan oleh orang lain.',
+            'Pemilih wajib mempelajari visi dan misi setiap kandidat sebelum menekan tombol konfirmasi.',
+            'Suara yang telah dikonfirmasi tidak dapat diubah atau dibatalkan dengan alasan apa pun.',
+            'Segala bentuk kecurangan atau penyalahgunaan token akan didiskualifikasi oleh panitia.'
+        ]
+    },
+    faq: {
+        badge: 'BANTUAN & PANDUAN',
+        title: 'PANDUAN & FAQ',
+        color: '#38BAFF',
+        items: [
+            'Bagaimana cara memilih? Masukkan token dari panitia di halaman awal, pilih paslon, lalu klik Konfirmasi.',
+            'Token tidak bisa masuk? Pastikan tidak ada spasi tambahan dan periksa huruf/angka yang mirip (misal angka 0 dan huruf O).',
+            'Muncul pesan "Token sudah digunakan"? Hubungi panitia di meja verifikasi jika kamu merasa belum pernah memberikan suara.',
+            'Apakah pilihan saya bisa dilihat panitia? Tidak, database hanya mencatat status token terpakai tanpa menghubungkannya ke pilihan paslon.'
+        ]
+    },
+    privasi: {
+        badge: 'KEAMANAN DATA',
+        title: 'KEBIJAKAN PRIVASI',
+        color: '#4FC955',
+        items: [
+            'Token pemilih dienkripsi menggunakan algoritma SHA-256 sebelum dikirim dan dicocokkan dengan server.',
+            'Sistem menerapkan asas LUBER JURDIL: tidak ada data nama/NIS yang disimpan bersama catatan suara.',
+            'Riwayat suara disimpan secara anonim dan hanya digunakan untuk rekapitulasi resmi Pemilu ITSC 2026.'
+        ]
+    },
+    berita: {
+        badge: 'DOKUMEN RESMI',
+        title: 'BERITA ACARA PEMILU',
+        color: '#9B59EF',
+        items: [
+            'Pemungutan suara dilaksanakan secara daring melalui sistem E-Voting Pemilu ITSC 2026.',
+            'Penghitungan suara berlangsung secara otomatis dan realtime yang dapat dipantau panitia serta saksi.',
+            'Hasil resmi pemenang pemilihan akan ditetapkan dan diumumkan setelah sesi pemungutan suara ditutup.'
+        ]
+    }
+};
+
+function openInfoModal(type) {
+    const info = footerInfoData[type];
+    if (!info) return;
+
+    document.getElementById('infoModalBadge').textContent = info.badge;
+    document.getElementById('infoModalTitle').textContent = info.title;
+    document.getElementById('infoModalAccent').style.background =
+        `repeating-linear-gradient(90deg, ${info.color} 0px 8px, #FFE033 8px 16px)`;
+
+    const listEl = document.getElementById('infoModalList');
+    listEl.innerHTML = info.items.map((text, idx) =>
+        `<li>
+            <span style="font-family:'Press Start 2P',cursive;font-size:8px;color:#FFE033;min-width:22px;padding-top:3px">${String(idx + 1).padStart(2, '0')}</span>
+            <span style="font-family:'Plus Jakarta Sans',sans-serif;font-size:13px;color:rgba(255,255,255,0.92);line-height:1.6">${text}</span>
+        </li>`
+    ).join('');
+
+    document.getElementById('footerInfoModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeInfoModal() {
+    const modal = document.getElementById('footerInfoModal');
+    if (modal) modal.classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+function scrollToTopSmooth() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
 }

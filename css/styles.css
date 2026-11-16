@@ -6038,3 +6038,229 @@ body {
   font-size: 0.88rem;
   font-weight: 500;
 }
+
+
+
+
+/* ── Footer Enhancement: Jadwal Lebih Jelas ── */
+.footer-schedule--clear .fsched-item {
+  padding: 6px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 6px;
+}
+
+.footer-schedule--clear .fsched-label {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.footer-schedule--clear .fsched-date {
+  color: #FFE033;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.footer-schedule--clear .fsched-done {
+  border-left-color: #4FC955;
+}
+
+.footer-schedule--clear .fsched-active {
+  border-left-color: #FFE033;
+  background: rgba(255, 224, 51, 0.12);
+}
+
+.footer-schedule--clear .fsched-upcoming {
+  border-left-color: #38BAFF;
+}
+
+/* ── Hover Glow pada Kontak Panitia ── */
+.footer-copy-btn {
+  transition: transform 0.15s ease, border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.footer-copy-btn:hover {
+  border-color: #FFE033;
+  background: rgba(255, 224, 51, 0.12);
+  box-shadow: 0 0 12px rgba(255, 224, 51, 0.35);
+  transform: translateY(-2px);
+}
+
+.footer-copy-btn:hover .fcb-copy-hint {
+  background: #FFE033;
+  color: #0D1128;
+}
+
+/* ── Tombol Arcade Back to Top ── */
+.footer-bottom-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.px-back-to-top {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 9px;
+  color: #0D1128;
+  background: #FFE033;
+  border: 2px solid #0D1128;
+  padding: 9px 14px;
+  cursor: pointer;
+  box-shadow: 3px 3px 0px #FF8C1A;
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background 0.15s ease;
+}
+
+.px-back-to-top:hover {
+  background: #FFF078;
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px #FF8C1A;
+}
+
+.px-back-to-top:active {
+  transform: translate(3px, 3px);
+  box-shadow: 0px 0px 0px #FF8C1A;
+}
+
+
+
+/* ── Perbaikan Penataan Input Token Tanpa Ikon Kunci ── */
+.gate-input-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.gate-input {
+  width: 100%;
+  height: 52px;
+  padding: 0 18px !important;
+  text-align: center;
+  line-height: 52px;
+  box-sizing: border-box;
+}
+
+.gate-input::placeholder {
+  text-align: center;
+}
+
+
+
+
+/* ── Perbaikan Proporsi & Perataan Grid Footer ── */
+.footer-main {
+  align-items: stretch !important;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Pastikan elemen dengan atribut hidden benar-benar tersembunyi */
+[hidden] {
+  display: none !important;
+}
+
+/* Navigasi lebih rapi (1 baris per item, tidak memakan banyak tinggi) */
+.footer-links--compact {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.footer-links--compact .footer-link {
+  font-size: 9.5px !important;
+  line-height: 1.5;
+  padding: 3px 0;
+  white-space: nowrap;
+}
+
+/* Jadwal Pemilu kompak 1 baris dengan tinggi seimbang */
+.footer-schedule--clear {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-schedule--clear .fsched-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 7px 10px;
+  background: rgba(255, 255, 255, 0.04);
+  border-left: 3px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 0;
+}
+
+.footer-schedule--clear .fsched-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 11.5px;
+  font-weight: 600;
+  flex: 1;
+  white-space: nowrap;
+}
+
+.footer-schedule--clear .fsched-date {
+  font-family: 'Press Start 2P', cursive;
+  color: #FFE033;
+  font-size: 7.5px;
+  white-space: nowrap;
+}
+
+.footer-schedule--clear .fsched-done {
+  border-left-color: #4FC955;
+}
+
+.footer-schedule--clear .fsched-active {
+  border-left-color: #FFE033;
+  background: rgba(255, 224, 51, 0.14);
+}
+
+.footer-schedule--clear .fsched-upcoming {
+  border-left-color: #38BAFF;
+}
+
+/* Sejajarkan kotak 3 ikon keamanan di Kolom 1 ke bagian bawah agar tinggi simetris */
+.footer-col--brand .footer-integrity-row {
+  margin-top: auto;
+}
+
+/* Sejajarkan kotak Integritas Pemilu di Kolom 4 ke bagian bawah */
+.footer-col .footer-integrity-seal {
+  margin-top: auto;
+}
+
+
+
+/* ── Link Instagram di Kontak Panitia ── */
+a.footer-copy-btn.footer-ig-link {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+
+
+
+/* ── Seragamkan Warna & Kontras Nomor Urut Kandidat ── */
+.candidate-card .card-number {
+  color: #FFE033 !important;
+  text-shadow: 2px 2px 0 #14122B, -1px -1px 0 #14122B, 1px -1px 0 #14122B, -1px 1px 0 #14122B;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+/* Perkuat gradasi gelap di area teks bawah foto kandidat agar semua tulisan kontras */
+.candidate-card .card-overlay {
+  background: linear-gradient(to top,
+      rgba(20, 18, 43, 0.96) 0%,
+      rgba(20, 18, 43, 0.85) 38%,
+      rgba(20, 18, 43, 0.25) 65%,
+      transparent 100%) !important;
+}
