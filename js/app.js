@@ -33,7 +33,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     updateAdminClock();
     setInterval(updateAdminClock, 1000);
-    startVotingCountdown(3 * 60 * 60);
 
     document.getElementById('visiModal')?.addEventListener('click', (e) => {
         if (e.target === e.currentTarget) closeVisiModal();
@@ -126,7 +125,7 @@ async function generateHashedTokens() {
 
     if (isNaN(qty) || qty < 1 || qty > 1000) {
         if (statusEl) {
-            statusEl.textContent = '⚠️ Masukkan jumlah token antara 1 sampai 1.000.';
+            statusEl.textContent = 'Masukkan jumlah token antara 1 sampai 1.000.';
             statusEl.style.color = '#FF5F57';
         }
         return;
@@ -134,7 +133,7 @@ async function generateHashedTokens() {
 
     if (btnGen) btnGen.disabled = true;
     if (statusEl) {
-        statusEl.textContent = `⏳ Membuat & melakukan hashing SHA-256 untuk ${qty} token...`;
+        statusEl.textContent = `Membuat & melakukan hashing SHA-256 untuk ${qty} token...`;
         statusEl.style.color = '#38BAFF';
     }
 
@@ -158,18 +157,18 @@ async function generateHashedTokens() {
         downloadGeneratedTokensCSV(plainTokens);
 
         if (statusEl) {
-            statusEl.textContent = `✅ Berhasil membuat ${insertedCount} token hash! File CSV token asli otomatis diunduh.`;
+            statusEl.textContent = `Berhasil membuat ${insertedCount} token hash! File CSV token asli otomatis diunduh.`;
             statusEl.style.color = '#4FC955';
         }
-        showToast(`✅ ${insertedCount} TOKEN HASH BERHASIL DIBUAT!`);
+        showToast(`${insertedCount} TOKEN HASH BERHASIL DIBUAT!`);
         await fetchRealtimeData();
     } catch (err) {
         console.error(err);
         if (statusEl) {
-            statusEl.textContent = `❌ Gagal generate token: ${err.message}`;
+            statusEl.textContent = `Gagal generate token: ${err.message}`;
             statusEl.style.color = '#FF5F57';
         }
-        showToast('⚠️ GAGAL GENERATE TOKEN!');
+        showToast('GAGAL GENERATE TOKEN!');
     } finally {
         if (btnGen) btnGen.disabled = false;
     }
@@ -203,7 +202,7 @@ async function clearAllTokens() {
     if (!isAdminSession || !cachedAdminPin) return;
 
     const ok = confirm(
-        '⚠️ HAPUS SEMUA TOKEN?\n\n' +
+        'HAPUS SEMUA TOKEN?\n\n' +
         'Seluruh hash token di database akan dihapus permanen. Token lama tidak akan bisa dipakai lagi.'
     );
     if (!ok) return;
@@ -213,17 +212,17 @@ async function clearAllTokens() {
     });
 
     if (error) {
-        showToast('⚠️ GAGAL MENGHAPUS TOKEN!');
+        showToast('GAGAL MENGHAPUS TOKEN!');
         return;
     }
 
     const statusEl = document.getElementById('tokenGenStatus');
     if (statusEl) {
-        statusEl.textContent = '🗑️ Semua token hash berhasil dihapus dari database.';
+        statusEl.textContent = 'Semua token hash berhasil dihapus dari database.';
         statusEl.style.color = '#FFE033';
     }
     await fetchRealtimeData();
-    showToast('🗑️ SEMUA TOKEN BERHASIL DIHAPUS!');
+    showToast('SEMUA TOKEN BERHASIL DIHAPUS!');
 }
 
 // ═══════════════════════════════════════════════════════
@@ -319,7 +318,7 @@ async function submitCode() {
     input.disabled = true;
     btn.disabled = true;
     btn.classList.add('loading');
-    label.textContent = '⏳ MEMVERIFIKASI...';
+    label.textContent = 'MEMVERIFIKASI...';
     setGateError(null);
 
     // 1. Cek apakah yang dimasukkan adalah KODE ADMIN
@@ -338,7 +337,7 @@ async function submitCode() {
                 document.getElementById('codeGate').classList.add('hidden');
                 setAdminUIState(true);
                 switchView('admin');
-                showToast('🛡️ MODE PANITIA AKTIF — TOKEN HASH SIAP');
+                showToast('MODE PANITIA AKTIF — TOKEN HASH SIAP');
             }, 600);
             return;
         }
@@ -377,7 +376,7 @@ async function submitCode() {
         setTimeout(() => {
             document.getElementById('codeGate').classList.add('hidden');
             switchView('voting');
-            showToast('🗳️ SELAMAT DATANG DI BILIK SUARA!');
+            showToast('SELAMAT DATANG DI BILIK SUARA!');
         }, 550);
     } catch (err) {
         input.disabled = false;
@@ -448,7 +447,7 @@ function switchView(view) {
 
     if (view === 'admin') {
         if (!isAdminSession) {
-            showToast('🔒 AKSES DITOLAK! KHUSUS PANITIA.');
+            showToast('AKSES DITOLAK! KHUSUS PANITIA.');
             return;
         }
         vVoting.classList.remove('view--active');
@@ -492,12 +491,12 @@ function openVisiModal(id) {
     if (voteBtn) {
         voteBtn.setAttribute('data-paslon', id);
         if (!isAdminSession && hasVoted) {
-            voteBtn.textContent = '🔒 SUDAH MEMILIH';
+            voteBtn.textContent = 'SUDAH MEMILIH';
             voteBtn.disabled = true;
             voteBtn.style.opacity = '0.5';
             voteBtn.style.cursor = 'not-allowed';
         } else {
-            voteBtn.textContent = `🗳️ VOTE ${data.number}`;
+            voteBtn.textContent = `VOTE ${data.number}`;
             voteBtn.disabled = false;
             voteBtn.style.opacity = '1';
             voteBtn.style.cursor = 'pointer';
@@ -520,7 +519,7 @@ function handleVote(paslonId) {
         return;
     }
     if (!isAdminSession && hasVoted) {
-        showToast(`⚠️ ANDA SUDAH MEMILIH PASLON 0${votedPaslonId}!`);
+        showToast(`ANDA SUDAH MEMILIH PASLON 0${votedPaslonId}!`);
         return;
     }
     openVoteConfirm(paslonId);
@@ -557,7 +556,7 @@ async function confirmVote() {
 
     if (confirmBtn) {
         confirmBtn.disabled = true;
-        confirmBtn.textContent = '⏳ MENYIMPAN...';
+        confirmBtn.textContent = 'MENYIMPAN...';
     }
 
     let voteSuccess = false;
@@ -587,7 +586,7 @@ async function confirmVote() {
 
     if (!voteSuccess) {
         closeVoteConfirm();
-        showToast('⚠️ Token sudah terpakai atau gagal menyimpan suara.');
+        showToast('Token sudah terpakai atau gagal menyimpan suara.');
         if (!isAdminSession) {
             setTimeout(() => resetToGate(), 1500);
         }
@@ -611,12 +610,12 @@ function updateVoteButtons() {
     document.querySelectorAll('.card-actions .btn-vote').forEach((btn, idx) => {
         const pid = idx + 1;
         if (hasVoted && votedPaslonId === pid) {
-            btn.textContent = '✅ DIPILIH';
+            btn.textContent = 'DIPILIH';
             btn.style.background = '#4FC955';
             btn.style.cursor = 'default';
             btn.disabled = true;
         } else if (hasVoted) {
-            btn.textContent = '🔒 TERKUNCI';
+            btn.textContent = 'TERKUNCI';
             btn.style.opacity = '0.45';
             btn.style.cursor = 'not-allowed';
             btn.disabled = true;
@@ -627,7 +626,7 @@ function updateVoteButtons() {
 function restoreVoteButtons() {
     document.querySelectorAll('.card-actions .btn-vote').forEach((btn, idx) => {
         const pid = idx + 1;
-        btn.textContent = `🗳️ VOTE PASLON 0${pid}`;
+        btn.textContent = `VOTE PASLON 0${pid}`;
         btn.style.background = '';
         btn.style.opacity = '1';
         btn.style.cursor = 'pointer';
@@ -675,14 +674,14 @@ async function exportRecapCSV() {
     link.click();
     URL.revokeObjectURL(url);
 
-    showToast('📄 FILE REKAP CSV BERHASIL DIUNDUH!');
+    showToast('FILE REKAP CSV BERHASIL DIUNDUH!');
 }
 
 async function resetElectionDatabase() {
     if (!isAdminSession || !cachedAdminPin) return;
 
     const konfirmasi1 = confirm(
-        '⚠️ PERINGATAN RESET DATA SUARA!\n\n' +
+        'PERINGATAN RESET DATA SUARA!\n\n' +
         'Semua perolehan suara akan direset menjadi 0 dan status token akan dikembalikan.\n\n' +
         'Lanjutkan?'
     );
@@ -690,11 +689,11 @@ async function resetElectionDatabase() {
 
     const ketikReset = prompt('Ketik RESET untuk mengonfirmasi penghapusan seluruh suara:');
     if (!ketikReset || ketikReset.trim().toUpperCase() !== 'RESET') {
-        showToast('❌ RESET DIBATALKAN.');
+        showToast('RESET DIBATALKAN.');
         return;
     }
 
-    showToast('⏳ MERESET DATA SUARA...');
+    showToast('MERESET DATA SUARA...');
 
     const { data, error } = await supabaseClient.rpc('admin_reset_votes', {
         p_admin_pass: cachedAdminPin
@@ -702,7 +701,7 @@ async function resetElectionDatabase() {
 
     if (error || data !== true) {
         console.error('Reset error:', error);
-        showToast('⚠️ GAGAL RESET: ' + (error?.message || 'Fungsi RPC tidak merespons'));
+        showToast('GAGAL RESET: ' + (error?.message || 'Fungsi RPC tidak merespons'));
         return;
     }
 
@@ -714,7 +713,7 @@ async function resetElectionDatabase() {
     updateStats();
     await fetchRealtimeData();
 
-    showToast('✅ DATA SUARA BERHASIL DIRESET KE 0!');
+    showToast('DATA SUARA BERHASIL DIRESET KE 0!');
 }
 
 // ── TOAST ─────────────────────────────────────────────
@@ -726,7 +725,7 @@ function showToast(msg) {
 }
 
 // ══════════════════════════════════════════════════════
-//  CLOCK & COUNTDOWN
+//  ADMIN CLOCK
 // ══════════════════════════════════════════════════════
 function updateAdminClock() {
     const now = new Date();
@@ -743,30 +742,6 @@ function updateAdminClock() {
     if (dateEl) dateEl.textContent = `${dd} / ${mo} / ${yyyy}`;
 }
 
-let votingCountdownSecs = 0;
-function startVotingCountdown(totalSeconds) {
-    votingCountdownSecs = totalSeconds;
-    updateCountdownDisplay();
-    setInterval(() => {
-        if (votingCountdownSecs > 0) {
-            votingCountdownSecs--;
-            updateCountdownDisplay();
-        }
-    }, 1000);
-}
-function updateCountdownDisplay() {
-    const el = document.getElementById('statCountdown');
-    if (!el) return;
-    const h = Math.floor(votingCountdownSecs / 3600);
-    const m = Math.floor((votingCountdownSecs % 3600) / 60);
-    const s = votingCountdownSecs % 60;
-    if (h > 0) {
-        el.textContent = `${String(h).padStart(2, '0')}:${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-    } else {
-        el.textContent = `${String(m).padStart(2, '0')}:${String(s).padStart(2, '0')}`;
-    }
-}
-
 // ══════════════════════════════════════════════════════
 //  COPY CONTACT
 // ══════════════════════════════════════════════════════
@@ -780,9 +755,9 @@ function copyContact(btn, text) {
             if (hint) hint.textContent = orig;
             btn.classList.remove('copied');
         }, 2000);
-        showToast('📋 TERSALIN: ' + text);
+        showToast('TERSALIN: ' + text);
     }).catch(() => {
-        showToast('⚠️ Gagal menyalin. Salin manual: ' + text);
+        showToast('Gagal menyalin. Salin manual: ' + text);
     });
 }
 
@@ -837,7 +812,7 @@ function closeThankyou() {
     if (conf) conf.innerHTML = '';
 
     if (isAdminSession) {
-        showToast('✅ SUARA PANITIA TERCATAT! SIAP MEMILIH LAGI.');
+        showToast('SUARA PANITIA TERCATAT! SIAP MEMILIH LAGI.');
         return;
     }
 

@@ -67,7 +67,7 @@
             onkeydown="if(event.key==='Enter') submitCode()" />
         </div>
         <div id="gateError" class="gate-error" hidden>
-          <span class="gate-error-icon">⚠️</span>
+          <span class="gate-error-icon">!</span>
           <span id="gateErrorMsg"></span>
         </div>
         <div id="gateSuccess" class="gate-success" hidden>
@@ -78,7 +78,7 @@
         <span id="gateSubmitLabel">▶ MASUK KE BILIK SUARA</span>
       </button>
       <div class="gate-hint">
-        <span class="gate-hint-icon">💡</span>
+        <span class="gate-hint-icon">INFO</span>
         <p>Masukkan <strong>token unik</strong> dari panitia. Setiap token terenkripsi dan hanya berlaku untuk <strong>1
             kali
             suara</strong>.</p>
@@ -124,12 +124,11 @@
       <div class="hero-title">
         <span class="px-badge">★ KANDIDAT PEMILU ITSC 2026 ★</span>
         <h2 class="px-heading">
-          PILIH PASANGAN CALON<br>
-          <span>UNTUK MASA DEPAN</span><br>
-          ORGANISASI<span class="px-cursor"></span>
+          VOTING KANDIDAT<br>
+          <span>CAPRES &amp; CAWAPRES</span><span class="px-cursor"></span>
         </h2>
         <div class="px-hero-hint">
-          <span class="phh-badge">▶ PANDUAN</span>
+          <span class="phh-badge">PANDUAN</span>
           <p class="phh-text">
             Klik <span class="phh-key">LIHAT VISI MISI</span> pada setiap kandidat untuk mempelajari visi, misi, dan
             program kerja sebelum memberikan suara.
@@ -140,7 +139,7 @@
       <div class="cards-grid">
         <!-- PASLON 01 -->
         <div class="candidate-card" style="--card-color:#38BAFF">
-          <img src="img/paslon1.png" alt="Raffa & Dicky" class="card-img">
+          <img src="img/paslon1.webp" alt="Raffa & Dicky" class="card-img">
           <div class="card-badge">Kandidat 01</div>
           <div class="card-overlay">
             <div class="card-info">
@@ -155,7 +154,7 @@
         </div>
         <!-- PASLON 02 -->
         <div class="candidate-card" style="--card-color:#FF8C1A">
-          <img src="img/paslon2.png" alt="Fadil & Fatchul" class="card-img">
+          <img src="img/paslon2.webp" alt="Fadil & Fatchul" class="card-img">
           <div class="card-badge">Kandidat 02</div>
           <div class="card-overlay">
             <div class="card-info">
@@ -170,7 +169,7 @@
         </div>
         <!-- PASLON 03 -->
         <div class="candidate-card" style="--card-color:#9B59EF">
-          <img src="img/paslon3.png" alt="Choirul & Dika" class="card-img">
+          <img src="img/paslon3.webp" alt="Choirul & Dika" class="card-img">
           <div class="card-badge">Kandidat 03</div>
           <div class="card-overlay">
             <div class="card-info">
@@ -198,9 +197,9 @@
         </div>
         <div class="aph-top-bar">
           <div class="aph-breadcrumb">
-            <span class="apb-item">🏠 SISTEM</span>
+            <span class="apb-item">SISTEM</span>
             <span class="apb-sep">▶</span>
-            <span class="apb-item">📊 REKAPITULASI</span>
+            <span class="apb-item">REKAPITULASI</span>
             <span class="apb-sep">▶</span>
             <span class="apb-item apb-item--active">LIVE DASHBOARD</span>
           </div>
@@ -214,22 +213,22 @@
           <div class="aph-left">
             <div class="aph-icon-wrap" aria-hidden="true">
               <div class="aph-live-dot"></div>
-              <div class="aph-icon-pixel">📊</div>
+              <div class="aph-icon-pixel">LIVE</div>
             </div>
             <div>
               <div class="aph-eyebrow">▶ SISTEM PEMILU ITSC 2026</div>
               <h2 class="aph-title">DASHBOARD<br><span class="aph-title-accent">REKAPITULASI</span></h2>
               <p class="aph-sub">DATA DIPERBARUI SECARA REALTIME · AKSES TERBATAS PANITIA</p>
               <div class="aph-tags">
-                <span class="aph-tag">🔒 TERENKRIPSI</span>
-                <span class="aph-tag">📡 LIVE SYNC</span>
-                <span class="aph-tag">✓ TERVERIFIKASI</span>
+                <span class="aph-tag">TERENKRIPSI</span>
+                <span class="aph-tag">LIVE SYNC</span>
+                <span class="aph-tag">TERVERIFIKASI</span>
               </div>
             </div>
           </div>
           <div class="aph-right">
             <div class="aph-clock-wrap">
-              <div class="aph-clock-label">⏱ WAKTU SISTEM</div>
+              <div class="aph-clock-label">WAKTU SISTEM</div>
               <div class="aph-clock" id="adminClock">00:00:00</div>
               <div class="aph-clock-date" id="adminDate">-- / -- / ----</div>
             </div>
@@ -238,7 +237,7 @@
                 ↓ EKSPOR REKAP CSV
               </button>
               <button class="btn-export" style="border-color:#FF5F57;color:#FF5F57" onclick="resetElectionDatabase()">
-                🗑️ RESET DATA (0)
+                RESET DATA (0)
               </button>
             </div>
           </div>
@@ -257,34 +256,6 @@
         <div class="aph-stripe" aria-hidden="true"></div>
       </div>
 
-      <!-- ── Stat Cards ── -->
-      <div class="stats-grid">
-        <div class="stat-card stat-card--orange">
-          <div class="stat-card-icon">👥</div>
-          <div class="stat-label">TOTAL TOKEN</div>
-          <div id="statTotalDpt" class="stat-value">0</div>
-          <div class="stat-note">Token hash terdaftar</div>
-        </div>
-        <div class="stat-card stat-card--blue">
-          <div class="stat-card-icon">🗳️</div>
-          <div class="stat-label">SUARA MASUK</div>
-          <div id="statTotalSuara" class="stat-value">0</div>
-          <div class="stat-note">Dari pemilih terdaftar</div>
-        </div>
-        <div class="stat-card stat-card--green">
-          <div class="stat-card-icon">📈</div>
-          <div class="stat-label">PARTISIPASI</div>
-          <div id="statPercent" class="stat-value">0.0%</div>
-          <div class="stat-note">Target: ≥ 75%</div>
-        </div>
-        <div class="stat-card stat-card--purple">
-          <div class="stat-card-icon">⏱️</div>
-          <div class="stat-label">SISA WAKTU</div>
-          <div id="statCountdown" class="stat-value">03:00:00</div>
-          <div class="stat-note">Pemungutan suara aktif</div>
-        </div>
-      </div>
-
       <!-- ── PANEL GENERATOR TOKEN HASH (ADMIN ONLY) ── -->
       <div class="score-panel adm-token-panel">
         <div class="score-panel-header">
@@ -293,7 +264,7 @@
             <span class="tl tl--yellow"></span>
             <span class="tl tl--green"></span>
           </div>
-          <h3 class="chart-title">🔑 GENERATOR TOKEN PEMILIH (SHA-256 HASH)</h3>
+          <h3 class="chart-title">GENERATOR TOKEN PEMILIH (SHA-256 HASH)</h3>
           <div class="adm-token-badges">
             <span class="tk-badge tk-total">TOTAL: <strong id="tkTotalCount">0</strong></span>
             <span class="tk-badge tk-used">TERPAKAI: <strong id="tkUsedCount">0</strong></span>
@@ -314,11 +285,11 @@
               <input type="number" id="tokenQtyInput" min="1" max="1000" value="100" />
             </div>
             <button type="button" class="btn-sim btn-adm-gen" id="btnGenerateTokens" onclick="generateHashedTokens()">
-              ⚡ GENERATE &amp; UNDUH CSV
+              GENERATE &amp; UNDUH CSV
             </button>
             <button type="button" class="btn-export" style="border-color:#FF5F57;color:#FF5F57"
               onclick="clearAllTokens()">
-              🗑️ HAPUS SEMUA TOKEN
+              HAPUS SEMUA TOKEN
             </button>
           </div>
           <div id="tokenGenStatus" class="tk-status-msg"></div>
@@ -413,15 +384,9 @@
     <div class="footer-hero">
       <div class="footer-hero-inner">
         <div class="footer-hero-left">
-          <div class="footer-hero-eyebrow">▶ PEMILU ITSC 2026</div>
+          <div class="footer-hero-eyebrow">PEMILU ITSC 2026</div>
           <h2 class="footer-hero-title">SUARA ANDA<br><span>MENENTUKAN</span><br>MASA DEPAN</h2>
-          <p class="footer-hero-sub">Sistem e-voting transparan untuk pemilihan Ketua &amp; Wakil Ketua ITSC. Setiap
-            suara terenkripsi dan tercatat secara realtime.</p>
-          <div class="footer-hero-badges">
-            <span class="fhb fhb--green">✓ TERENKRIPSI</span>
-            <span class="fhb fhb--blue">✓ REALTIME</span>
-            <span class="fhb fhb--yellow">✓ TRANSPARAN</span>
-          </div>
+          <p class="footer-hero-sub">Platform e-voting resmi ITSC SMK Negeri 2 Klaten untuk pemilihan Ketua &amp; Wakil Ketua periode 2026-2028.</p>
         </div>
       </div>
     </div>
@@ -440,23 +405,19 @@
             <div class="footer-brand-year">ITSC 2026</div>
           </div>
         </div>
-        <p class="footer-brand-desc">Platform e-voting resmi Information &amp; Technology Study Community (ITSC) SMK
-          Negeri 2 Klaten periode 2026–2028 untuk pemilihan yang jujur dan demokratis.</p>
+        <p class="footer-brand-desc">Platform e-voting resmi ITSC SMK Negeri 2 Klaten periode 2026-2028.</p>
         <div class="footer-status-badge">
           <span class="footer-status-dot"></span>
           SISTEM AKTIF &amp; BERJALAN
         </div>
         <div class="footer-integrity-row">
           <div class="fir-item">
-            <div class="fir-icon">🔒</div>
             <div class="fir-label">1 TOKEN<br>1 SUARA</div>
           </div>
           <div class="fir-item">
-            <div class="fir-icon">📡</div>
             <div class="fir-label">HASIL<br>REALTIME</div>
           </div>
           <div class="fir-item">
-            <div class="fir-icon">📋</div>
             <div class="fir-label">TERAUDIT<br>PANITIA</div>
           </div>
         </div>
@@ -479,16 +440,16 @@
           <li><a href="#" onclick="openInfoModal('berita');return false;" class="footer-link"><span
                 class="flink-arrow">▶</span>Berita Acara</a></li>
         </ul>
-        <div class="footer-col-title" style="margin-top:16px"><span class="ftitle-icon">⚡</span> JADWAL PEMILU</div>
+        <div class="footer-col-title" style="margin-top:16px"><span class="ftitle-icon">★</span> JADWAL PEMILU</div>
         <ul class="footer-schedule footer-schedule--clear">
           <li class="fsched-item fsched-done"><span class="fsched-dot"></span><span
-              class="fsched-label">Pendaftaran</span><span class="fsched-date">Des 2026</span></li>
+              class="fsched-label">Pendaftaran</span><span class="fsched-date">12 Nov 2026</span></li>
           <li class="fsched-item fsched-done"><span class="fsched-dot"></span><span class="fsched-label">Kampanye &amp;
-              Debat</span><span class="fsched-date">Des 2026</span></li>
+              Debat</span><span class="fsched-date">20 Nov 2026</span></li>
           <li class="fsched-item fsched-active"><span class="fsched-dot"></span><span class="fsched-label">Pemungutan
-              Suara</span><span class="fsched-date">Des 2026</span></li>
+              Suara</span><span class="fsched-date">20 Nov 2026</span></li>
           <li class="fsched-item fsched-upcoming"><span class="fsched-dot"></span><span class="fsched-label">Penetapan
-              Hasil</span><span class="fsched-date">Des 2026</span></li>
+              Hasil</span><span class="fsched-date">Coming soon</span></li>
         </ul>
       </div>
 
@@ -506,32 +467,25 @@
 
       <!-- Col 4: Kontak -->
       <div class="footer-col">
-        <div class="footer-col-title"><span class="ftitle-icon">📧</span> KONTAK PANITIA</div>
+        <div class="footer-col-title"><span class="ftitle-icon">★</span> KONTAK PANITIA</div>
         <div class="footer-contact-box">
           <button class="footer-copy-btn" onclick="copyContact(this,'itscsmkn2@gmail.com')">
-            <span class="fcb-icon">📧</span><span>itscsmkn2@gmail.com</span><span class="fcb-copy-hint">SALIN</span>
+            <span class="fcb-icon">MAIL</span><span>itscsmkn2@gmail.com</span><span class="fcb-copy-hint">SALIN</span>
           </button>
           <a href="https://www.instagram.com/itsc_smkn2klt?dlrf=MW1pMGM3Nnd5ams2eA==" target="_blank"
             rel="noopener noreferrer" class="footer-copy-btn footer-ig-link">
-            <span class="fcb-icon">📱</span><span>@itsc_smkn2klaten</span><span class="fcb-copy-hint">BUKA ↗</span>
+            <span class="fcb-icon">IG</span><span>@itsc_smkn2klaten</span><span class="fcb-copy-hint">BUKA</span>
           </a>
           <button class="footer-copy-btn"
             onclick="copyContact(this,'JL. Sekarsuli, Senden, Ngawen, Klaten - SMKN 2 Klaten')">
-            <span class="fcb-icon">📍</span><span>JL. Sekarsuli, Senden, Ngawen, Klaten - SMKN 2 Klaten</span><span
+            <span class="fcb-icon">LOC</span><span>JL. Sekarsuli, Senden, Ngawen, Klaten - SMKN 2 Klaten</span><span
               class="fcb-copy-hint">SALIN</span>
           </button>
           <button class="footer-copy-btn" onclick="copyContact(this,'+62 877-2873-0859')">
-            <span class="fcb-icon">☎️</span><span>+62 877-2873-0859</span><span class="fcb-copy-hint">SALIN</span>
+            <span class="fcb-icon">TEL</span><span>+62 877-2873-0859</span><span class="fcb-copy-hint">SALIN</span>
           </button>
         </div>
-        <div class="footer-integrity-seal">
-          <div class="fis-icon">🏛️</div>
-          <div class="fis-text">
-            <div class="fis-title">INTEGRITAS PEMILU</div>
-            <div class="fis-sub">Diselenggarakan oleh ITSC SMK N 2 Klaten secara jujur, adil, dan demokratis sesuai
-              AD/ART organisasi.</div>
-          </div>
-        </div>
+
       </div>
 
     </div>
@@ -559,7 +513,7 @@
             <span style="background:#9B59EF"></span>
             <span style="background:#4FC955"></span>
           </div>
-          <button type="button" class="px-back-to-top" onclick="scrollToTopSmooth()" title="Kembali ke atas">
+          <button type="button" class="footer-top-btn" onclick="scrollToTopSmooth()" title="Kembali ke atas">
             ▲ KE ATAS
           </button>
         </div>
@@ -592,7 +546,7 @@
           <ul id="modalMisi" class="modal-misi-list"></ul>
         </div>
         <div class="modal-actions">
-          <button id="modalVoteBtn" onclick="voteFromModal()" class="btn-vote w-full">🗳️ VOTE KANDIDAT</button>
+          <button id="modalVoteBtn" onclick="voteFromModal()" class="btn-vote w-full">VOTE KANDIDAT</button>
           <button onclick="closeVisiModal()" class="btn-close-modal w-full">✕ TUTUP</button>
         </div>
       </div>
@@ -604,7 +558,7 @@
     <div id="voteConfirmBox" class="modal-box modal-box--confirm" role="dialog">
       <div id="confirmAccentBar" class="modal-accent"></div>
       <div class="modal-body modal-body--center">
-        <div id="confirmPaslonEmoji" class="confirm-emoji">🗳️</div>
+        <div id="confirmPaslonEmoji" class="confirm-emoji">VOTE</div>
         <h3 class="confirm-title">KONFIRMASI PILIHAN</h3>
         <div class="modal-divider"></div>
         <div class="confirm-info-box">
@@ -612,7 +566,7 @@
           <div id="confirmPaslonName" class="confirm-name">Raffa &amp; Dicky</div>
           <div id="confirmTagline" class="confirm-tagline"></div>
         </div>
-        <p class="confirm-warning">⚠️ PILIHAN TIDAK DAPAT<br>DIUBAH SETELAH DIKONFIRMASI</p>
+        <p class="confirm-warning">PILIHAN TIDAK DAPAT<br>DIUBAH SETELAH DIKONFIRMASI</p>
         <div class="confirm-btns">
           <button onclick="closeVoteConfirm()" class="btn-cancel">← BATAL</button>
           <button onclick="confirmVote()" class="btn-vote">✓ PILIH!</button>
@@ -630,7 +584,7 @@
 
     <div class="ty-box">
       <div class="ty-pixel-corners" aria-hidden="true"></div>
-      <span class="ty-trophy" aria-hidden="true">🏆</span>
+      <span class="ty-trophy" aria-hidden="true">WINNER</span>
       <div class="ty-eyebrow">★ PEMILU INTERNAL ITSC 2026 ★</div>
       <h2 class="ty-title">TERIMA KASIH<br><span>TELAH MEMILIH!</span></h2>
       <p class="ty-sub">Suara Anda telah tercatat dan tersimpan dengan aman.<br>Setiap suara berarti untuk masa depan
@@ -674,7 +628,7 @@
       <div class="modal-accent"
         style="background: repeating-linear-gradient(90deg, #FF5F57 0px 8px, #FFE033 8px 16px);"></div>
       <div class="modal-body modal-body--center">
-        <div class="confirm-emoji">📊</div>
+        <div class="confirm-emoji">CHART</div>
         <h3 class="confirm-title">KELUAR FULLSCREEN?</h3>
         <div class="modal-divider"></div>
         <p class="confirm-warning" style="color: rgba(255,255,255,0.85); line-height: 1.6;">
