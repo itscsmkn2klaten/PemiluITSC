@@ -40,8 +40,8 @@ const paslonDetails = {
     },
     3: {
         number: "KANDIDAT 03",
-        title: "Choirul & Dika",
-        tagline: "Muhammad Choirul Arifin (XI PPLG B) & Ramayudika Septyan Supermana (X PPLG B)",
+        title: "Choirul & Dhika",
+        tagline: "Muhammad Choirul Arifin (XI PPLG B) & Ramayudhika Septyan Supermana (X PPLG B)",
         color: "#9B59EF",
         emoji: "⚡",
         visi: "Menjadikan ITSC sebagai wadah pengembangan minat dan bakat bagi keluarga SIJA yang religius, kreatif,  bertanggungjawab, serta berdaya saing tinggi.",

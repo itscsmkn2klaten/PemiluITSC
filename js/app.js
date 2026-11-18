@@ -398,6 +398,28 @@ function setAdminUIState(visible) {
     if (footerAdminNav) footerAdminNav.hidden = !visible;
 }
 
+function requestAdminLogout() {
+    if (!isAdminSession) return;
+
+    const confirmModal = document.getElementById('adminLogoutConfirmModal');
+    if (confirmModal) confirmModal.classList.add('open');
+}
+
+function cancelAdminLogout() {
+    const confirmModal = document.getElementById('adminLogoutConfirmModal');
+    if (confirmModal) confirmModal.classList.remove('open');
+}
+
+function confirmAdminLogout() {
+    if (!isAdminSession) {
+        cancelAdminLogout();
+        return;
+    }
+
+    cancelAdminLogout();
+    resetToGate();
+}
+
 // ── Reset Penuh ke Layar Code Gate (Untuk Pemilih Berikutnya) ──
 function resetToGate() {
     hasVoted = false;

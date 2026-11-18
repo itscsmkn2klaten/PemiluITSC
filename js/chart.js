@@ -11,7 +11,7 @@ function initAdminChart() {
     chartInstance = new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: ['01. Raffa & Dicky', '02. Fadil & Fatchul', '03. Choirul & Dika'],
+            labels: ['01. Raffa & Dicky', '02. Fadil & Fatchul', '03. Choirul & Dhika'],
             datasets: [{
                 label: 'Jumlah Suara',
                 data: voteCounts,
@@ -106,7 +106,7 @@ function updateScoreRows(totalVotes) {
     const container = document.getElementById('scoreRows');
     if (!container) return;
     const colors = ['#38BAFF', '#FF8C1A', '#9B59EF'];
-    const names = ['Raffa & Dicky', 'Fadil & Fatchul', 'Choirul & Dika'];
+    const names = ['Raffa & Dicky', 'Fadil & Fatchul', 'Choirul & Dhika'];
     const max = Math.max(...voteCounts, 1);
 
     container.innerHTML = voteCounts.map((v, i) => {
@@ -134,7 +134,7 @@ function updateRekapList(totalVotes) {
     const container = document.getElementById('rekapList');
     if (!container) return;
     const colors = ['#38BAFF', '#FF8C1A', '#9B59EF'];
-    const names = ['Raffa & Dicky', 'Fadil & Fatchul', 'Choirul & Dika'];
+    const names = ['Raffa & Dicky', 'Fadil & Fatchul', 'Choirul & Dhika'];
     const sorted = [...voteCounts.map((v, i) => ({ v, i }))].sort((a, b) => b.v - a.v);
 
     container.innerHTML = sorted.map(({ v, i }, rank) => {

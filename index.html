@@ -11,6 +11,7 @@
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
   <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/theme.css">
 </head>
 
 <body>
@@ -21,13 +22,24 @@
     <div class="px-cloud px-cloud--b"></div>
     <div class="px-cloud px-cloud--c"></div>
     <div class="px-dots"></div>
+    <!-- Pixel stars -->
+    <div class="px-star px-star--1"></div>
+    <div class="px-star px-star--2"></div>
+    <div class="px-star px-star--3"></div>
+    <div class="px-star px-star--4"></div>
+    <!-- Pixel gems -->
+    <div class="px-gem px-gem--1"></div>
+    <div class="px-gem px-gem--2"></div>
+    <div class="px-gem px-gem--3"></div>
+    <!-- Pixel scanline -->
+    <div class="px-scanline"></div>
   </div>
 
   <!-- ── Page loader ── -->
   <div id="pageLoader" class="page-loader">
     <div class="loader-box">
       <span class="loader-pixel"></span>
-      <p>LOADING...</p>
+      <p>MEMUAT SISTEM...</p>
     </div>
   </div>
 
@@ -57,7 +69,7 @@
         </div>
         <span class="gate-badge">★ PEMILU ITSC 2026 ★</span>
         <h2 class="gate-title">MASUKKAN<br><span>TOKEN PEMILIH</span></h2>
-        <p class="gate-subtitle">Masukkan token unik yang kamu terima dari panitia ITSC untuk mengakses bilik suara.</p>
+        <p class="gate-subtitle">Masukkan token unik dari panitia ITSC untuk mengakses bilik suara digital. Setiap token hanya berlaku satu kali.</p>
       </div>
       <div class="gate-form">
         <label class="gate-label" for="regCodeInput">▶ TOKEN PEMILIH:</label>
@@ -79,9 +91,7 @@
       </button>
       <div class="gate-hint">
         <span class="gate-hint-icon">INFO</span>
-        <p>Masukkan <strong>token unik</strong> dari panitia. Setiap token terenkripsi dan hanya berlaku untuk <strong>1
-            kali
-            suara</strong>.</p>
+        <p>Token bersifat <strong>rahasia &amp; sekali pakai</strong>. Setiap token dienkripsi dengan <strong>SHA-256</strong> — suara Anda aman dan tidak dapat dimanipulasi.</p>
       </div>
       <div class="gate-stripe" aria-hidden="true"></div>
     </div>
@@ -102,7 +112,7 @@
       <div class="navbar-tabs">
         <button onclick="switchView('voting')" id="tabVoting" class="tab-btn active">BILIK SUARA</button>
         <button onclick="switchView('admin')" id="tabAdmin" class="tab-btn" hidden>ADMIN</button>
-        <button onclick="resetToGate()" id="tabLogout" class="tab-btn" hidden>KELUAR</button>
+        <button onclick="requestAdminLogout()" id="tabLogout" class="tab-btn" hidden>KELUAR</button>
       </div>
     </div>
   </header>
@@ -110,9 +120,10 @@
   <!-- ── Ticker ── -->
   <div class="px-ticker">
     <div class="px-ticker-inner">
-      ★ PEMILU ITSC 2026 &nbsp;◆&nbsp; SMK NEGERI 2 KLATEN &nbsp;★&nbsp; SUARA ANDA MENENTUKAN MASA DEPAN
-      &nbsp;◆&nbsp; KANDIDAT 01 · 02 · 03 &nbsp;★&nbsp; PEMILU ITSC 2026 &nbsp;◆&nbsp; PILIH PEMIMPIN TERBAIK
-      &nbsp;★&nbsp; SUARA ANDA MENENTUKAN MASA DEPAN &nbsp;◆&nbsp; KANDIDAT 01 · 02 · 03 &nbsp;★&nbsp;
+      ★ PEMILU ITSC 2026 &nbsp;◆&nbsp; SMK NEGERI 2 KLATEN &nbsp;★&nbsp; PILIH PEMIMPIN TERBAIK ITSC
+      &nbsp;◆&nbsp; KANDIDAT 01 · 02 · 03 &nbsp;★&nbsp; SUARA ANDA MENENTUKAN MASA DEPAN ORGANISASI
+      &nbsp;◆&nbsp; E-VOTING AMAN &amp; TERENKRIPSI &nbsp;★&nbsp; PEMILU ITSC 2026 &nbsp;◆&nbsp; SMK NEGERI 2 KLATEN
+      &nbsp;★&nbsp; PILIH PEMIMPIN TERBAIK ITSC &nbsp;◆&nbsp; KANDIDAT 01 · 02 · 03 &nbsp;★&nbsp;
     </div>
   </div>
 
@@ -121,64 +132,78 @@
 
     <!-- VIEW: VOTING -->
     <section id="viewVoting" class="view view--active">
+      <!-- Pixel deco row -->
+      <div class="px-deco-row" aria-hidden="true">
+        <span class="px-deco-coin"></span>
+        <span class="px-deco-coin"></span>
+        <span class="px-deco-coin"></span>
+        <span class="px-deco-spacer"></span>
+        <span class="px-deco-star-sm">★</span>
+        <span class="px-deco-star-sm">★</span>
+        <span class="px-deco-star-sm">★</span>
+        <span class="px-deco-spacer"></span>
+        <span class="px-deco-coin"></span>
+        <span class="px-deco-coin"></span>
+        <span class="px-deco-coin"></span>
+      </div>
       <div class="hero-title">
-        <span class="px-badge">★ KANDIDAT PEMILU ITSC 2026 ★</span>
+        <span class="px-badge">★ PEMILU PRESIDEN &amp; WAKIL PRESIDEN ITSC 2026 ★</span>
         <h2 class="px-heading">
-          VOTING KANDIDAT<br>
-          <span>CAPRES &amp; CAWAPRES</span><span class="px-cursor"></span>
+          PILIH PRESIDEN<br>
+          <span>ITSC 2026 – 2028</span><span class="px-cursor"></span>
         </h2>
         <div class="px-hero-hint">
           <span class="phh-badge">PANDUAN</span>
           <p class="phh-text">
-            Klik <span class="phh-key">LIHAT VISI MISI</span> pada setiap kandidat untuk mempelajari visi, misi, dan
-            program kerja sebelum memberikan suara.
+            Klik <span class="phh-key">LIHAT VISI MISI</span> untuk mengenal program kerja setiap kandidat,
+            lalu tekan <span class="phh-key">VOTE</span> untuk memberikan suara Anda.
           </p>
         </div>
       </div>
 
       <div class="cards-grid">
         <!-- PASLON 01 -->
-        <div class="candidate-card" style="--card-color:#38BAFF">
+        <div class="candidate-card" style="--card-color:#00d4ff">
           <img src="img/paslon1.webp" alt="Raffa & Dicky" class="card-img">
-          <div class="card-badge">Kandidat 01</div>
+          <div class="card-badge">KANDIDAT 01</div>
           <div class="card-overlay">
             <div class="card-info">
               <span class="card-number">NOMOR URUT 01</span>
               <h3 class="card-name">Raffa &amp; Dicky</h3>
             </div>
             <div class="card-actions">
-              <button onclick="openVisiModal(1)" class="btn-secondary">LIHAT VISI MISI</button>
-              <button onclick="handleVote(1)" class="btn-vote">VOTE PASLON 01</button>
+              <button onclick="openVisiModal(1)" class="btn-secondary">▶ VISI &amp; MISI</button>
+              <button onclick="handleVote(1)" class="btn-vote">★ PILIH PASLON 01</button>
             </div>
           </div>
         </div>
         <!-- PASLON 02 -->
-        <div class="candidate-card" style="--card-color:#FF8C1A">
+        <div class="candidate-card" style="--card-color:#ff6b00">
           <img src="img/paslon2.webp" alt="Fadil & Fatchul" class="card-img">
-          <div class="card-badge">Kandidat 02</div>
+          <div class="card-badge">KANDIDAT 02</div>
           <div class="card-overlay">
             <div class="card-info">
               <span class="card-number">NOMOR URUT 02</span>
               <h3 class="card-name">Fadil &amp; Fatchul</h3>
             </div>
             <div class="card-actions">
-              <button onclick="openVisiModal(2)" class="btn-secondary">LIHAT VISI MISI</button>
-              <button onclick="handleVote(2)" class="btn-vote">VOTE PASLON 02</button>
+              <button onclick="openVisiModal(2)" class="btn-secondary">▶ VISI &amp; MISI</button>
+              <button onclick="handleVote(2)" class="btn-vote">★ PILIH PASLON 02</button>
             </div>
           </div>
         </div>
         <!-- PASLON 03 -->
-        <div class="candidate-card" style="--card-color:#9B59EF">
-          <img src="img/paslon3.webp" alt="Choirul & Dika" class="card-img">
-          <div class="card-badge">Kandidat 03</div>
+        <div class="candidate-card" style="--card-color:#b44fff">
+          <img src="img/paslon3.webp" alt="Choirul & Dhika" class="card-img">
+          <div class="card-badge">KANDIDAT 03</div>
           <div class="card-overlay">
             <div class="card-info">
               <span class="card-number">NOMOR URUT 03</span>
-              <h3 class="card-name">Choirul &amp; Dika</h3>
+              <h3 class="card-name">Choirul &amp; Dhika</h3>
             </div>
             <div class="card-actions">
-              <button onclick="openVisiModal(3)" class="btn-secondary">LIHAT VISI MISI</button>
-              <button onclick="handleVote(3)" class="btn-vote">VOTE PASLON 03</button>
+              <button onclick="openVisiModal(3)" class="btn-secondary">▶ VISI &amp; MISI</button>
+              <button onclick="handleVote(3)" class="btn-vote">★ PILIH PASLON 03</button>
             </div>
           </div>
         </div>
@@ -380,21 +405,10 @@
       <div class="runner-flag"></div>
     </div>
 
-    <!-- Hero banner -->
-    <div class="footer-hero">
-      <div class="footer-hero-inner">
-        <div class="footer-hero-left">
-          <div class="footer-hero-eyebrow">PEMILU ITSC 2026</div>
-          <h2 class="footer-hero-title">SUARA ANDA<br><span>MENENTUKAN</span><br>MASA DEPAN</h2>
-          <p class="footer-hero-sub">Platform e-voting resmi ITSC SMK Negeri 2 Klaten untuk pemilihan Ketua &amp; Wakil Ketua periode 2026-2028.</p>
-        </div>
-      </div>
-    </div>
-
     <!-- Main grid -->
     <div class="footer-main">
 
-      <!-- Col 1: Brand -->
+      <!-- Col 1: Brand + Hero gabung -->
       <div class="footer-col footer-col--brand">
         <div class="footer-brand-row">
           <div class="footer-brand-logo footer-brand-logo--img">
@@ -405,7 +419,11 @@
             <div class="footer-brand-year">ITSC 2026</div>
           </div>
         </div>
-        <p class="footer-brand-desc">Platform e-voting resmi ITSC SMK Negeri 2 Klaten periode 2026-2028.</p>
+        <div class="footer-hero-compact">
+          <div class="fhc-eyebrow">▶ PEMILU ITSC 2026</div>
+          <div class="fhc-title">SUARA ANDA <span>MENENTUKAN</span> MASA DEPAN</div>
+        </div>
+        <p class="footer-brand-desc">E-voting resmi ITSC SMK N 2 Klaten — Presiden &amp; Wakil Presiden 2026–2028. Aman &amp; terenkripsi.</p>
         <div class="footer-status-badge">
           <span class="footer-status-dot"></span>
           SISTEM AKTIF &amp; BERJALAN
@@ -504,7 +522,7 @@
     <!-- Bottom bar -->
     <div class="footer-bottom">
       <div class="footer-bottom-inner">
-        <p class="footer-copy">© 2026 ITSC — INFORMATION & TECHNOLOGY STUDY COMMUNNITY — SMK NEGERI 2 KLATEN </p>
+        <p class="footer-copy">© 2026 ITSC — INFORMATION &amp; TECHNOLOGY STUDY COMMUNITY — SMK NEGERI 2 KLATEN</p>
         <div class="footer-bottom-right">
           <div class="footer-pixels-row" aria-hidden="true">
             <span style="background:#FF8C1A"></span>
@@ -586,9 +604,8 @@
       <div class="ty-pixel-corners" aria-hidden="true"></div>
       <span class="ty-trophy" aria-hidden="true">WINNER</span>
       <div class="ty-eyebrow">★ PEMILU INTERNAL ITSC 2026 ★</div>
-      <h2 class="ty-title">TERIMA KASIH<br><span>TELAH MEMILIH!</span></h2>
-      <p class="ty-sub">Suara Anda telah tercatat dan tersimpan dengan aman.<br>Setiap suara berarti untuk masa depan
-        organisasi kita.</p>
+      <h2 class="ty-title">TERIMA KASIH!<br><span>SUARA TERCATAT!</span></h2>
+      <p class="ty-sub">Suara Anda telah tersimpan dengan aman dan terenkripsi.<br>Bersama kita tentukan pemimpin terbaik ITSC 2026–2028.</p>
 
       <div id="tyPaslonBadge" class="ty-paslon-badge">
         <span id="tyPaslonNum" class="ty-paslon-num">01</span>
@@ -638,6 +655,26 @@
           <button type="button" onclick="cancelExitFullscreen()" class="btn-cancel">← TETAP DI SINI</button>
           <button type="button" onclick="confirmExitFullscreen()" class="btn-vote" style="background: #FF5F57;">✕ YA,
             KELUAR</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Modal Konfirmasi Logout Admin ── -->
+  <div id="adminLogoutConfirmModal" class="modal-overlay" style="z-index: 10002;">
+    <div class="modal-box modal-box--confirm" role="dialog" aria-modal="true" aria-labelledby="adminLogoutTitle">
+      <div class="modal-accent"
+        style="background: repeating-linear-gradient(90deg, #FF5F57 0px 8px, #FFE033 8px 16px);"></div>
+      <div class="modal-body modal-body--center">
+        <div class="confirm-emoji" aria-hidden="true">LOGOUT</div>
+        <h3 id="adminLogoutTitle" class="confirm-title">KELUAR DARI ADMIN?</h3>
+        <div class="modal-divider"></div>
+        <p class="confirm-warning" style="color: rgba(255,255,255,0.85); line-height: 1.6;">
+          Apakah Anda yakin ingin mengakhiri sesi admin?
+        </p>
+        <div class="confirm-btns">
+          <button type="button" onclick="cancelAdminLogout()" class="btn-cancel">← BATAL</button>
+          <button type="button" onclick="confirmAdminLogout()" class="btn-vote" style="background: #FF5F57;">YA, KELUAR</button>
         </div>
       </div>
     </div>
